@@ -1,14 +1,14 @@
-from faker import Faker
-import requests
-import phonenumbers as p
+from faker import Faker#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+import requests#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+import phonenumbers as p#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
 from phonenumbers import carrier, geocoder, timezone
 from helper import printer
 import curses
-import time
-import os
-import msvcrt
-import win32gui
-import random
+import time#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+import os#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+import msvcrt#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+import win32gui#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+import random #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
 import ctypes
 # Получение дескриптора процесса
 kernel32 = ctypes.WinDLL('kernel32')
@@ -20,49 +20,50 @@ kernel32.SetConsoleCtrlHandler(None, 1)
 
 banner = """ 
 
-888888b.   888       .d88888b.   .d88888b.  8888888b.  Y88b   d88P        .d8888b.  8888888888        d8888 8888888b.   .d8888b.  888    888 
-888  "88b  888       d88P" "Y88b d88P" "Y88b 888  "Y88b  Y88b d88P        d88P  Y88b 888              d88888 888   Y88b d88P  Y88b 888    888 
-888  .88P  888      888     888 888     888 888    888   Y88o88P         Y88b.      888             d88P888 888    888 888    888 888    888 
-8888888K.  888      888     888 888     888 888    888    Y888P           "Y888b.   8888888        d88P 888 888   d88P 888        8888888888 
-888  "Y88b 888      888     888 888     888 888    888     888               "Y88b. 888           d88P  888 8888888P"  888        888    888 
-888    888 888      888     888 888     888 888    888     888                 "888 888          d88P   888 888 T88b   888    888 888    888 
-888   d88P 888      Y88b. .d88P Y88b. .d88P 888  .d88P     888           Y88b  d88P 888         d8888888888 888  T88b  Y88b  d88P 888    888 
+888888b.   888       .d88888b.   .d88888b.  8888888b.  Y88b   d88P        .d8888b.  8888888888        d8888 8888888b.   .d8888b.  888    888 #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+888  "88b  888       d88P" "Y88b d88P" "Y88b 888  "Y88b  Y88b d88P        d88P  Y88b 888              d88888 888   Y88b d88P  Y88b 888    888#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+888  .88P  888      888     888 888     888 888    888   Y88o88P         Y88b.      888             d88P888 888    888 888    888 888    888 #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+8888888K.  888      888     888 888     888 888    888    Y888P           "Y888b.   8888888        d88P 888 888   d88P 888        8888888888 #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+888  "Y88b 888      888     888 888     888 888    888     888               "Y88b. 888           d88P  888 8888888P"  888        888    888 #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+888    888 888      888     888 888     888 888    888     888                 "888 888          d88P   888 888 T88b   888    888 888    888 #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+888   d88P 888      Y88b. .d88P Y88b. .d88P 888  .d88P     888           Y88b  d88P 888         d8888888888 888  T88b  Y88b  d88P 888    888 #CЛИТО НА КАНАЛЕ falcon-bytes.github.io
 8888888P"  88888888  "Y88888P"   "Y88888P"  8888888P"      888            "Y8888P"  8888888888 d88P     888 888   T88b  "Y8888P"  888    888
 
-                                                    РАЗРАБОТЧИК - https://t.me/pr0xit
+                                                    РАЗРАБОТЧИК - пошел нахуй
+                                                    Реверснуто для канала falcon-bytes.github.io
                                                                                                                                             
 """
 def getch():
     try:
         return msvcrt.getch()
-    except KeyboardInterrupt:
-        return b''
-
-def set_console_window_size(width, height):
-    hwnd = win32gui.GetForegroundWindow()
-    win32gui.MoveWindow(hwnd, 0, 0, width, height, True)
-
-
-def rain(stdscr):
-    curses.curs_set(0)
-    stdscr.nodelay(1)
-    curses.halfdelay(5)
-
-    max_y, max_x = stdscr.getmaxyx()
-
+    except KeyboardInterrupt:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        return b''#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+def set_console_window_size(width, height):#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    hwnd = win32gui.GetForegroundWindow()#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    win32gui.MoveWindow(hwnd, 0, 0, width, height, True)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+def rain(stdscr):#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    curses.curs_set(0)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    stdscr.nodelay(1)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    curses.halfdelay(5)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    max_y, max_x = stdscr.getmaxyx()#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
     raindrops = []
     for _ in range(50):
         y = random.randint(0, max_y-1)
         x = random.randint(0, max_x-1)
-        speed = random.uniform(3, 8)
-        symbol = random.choice(["/", "+", "-"])
-        raindrops.append({'y': y, 'x': x, 'speed': speed, 'symbol': symbol})
-
-    curses.start_color()
-    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)
-
-    while True:
-        stdscr.clear()
+        speed = random.uniform(3, 8)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        symbol = random.choice(["/", "+", "-"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        raindrops.append({'y': y, 'x': x, 'speed': speed, 'symbol': symbol})#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    curses.start_color()#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    while True:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        stdscr.clear()#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
 
         text = """
         
@@ -85,16 +86,16 @@ def rain(stdscr):
         stdscr.addstr(0, 0, text)
 
         for drop in raindrops:
-            try:
-                stdscr.addstr(int(drop['y']), int(drop['x']), drop['symbol'], curses.color_pair(1))
-            except curses.error as e:
-                print("Error:", e)
-            drop['y'] += drop['speed']
-            if drop['y'] >= max_y:
-                drop['y'] = 0
-                drop['x'] = random.randint(0, max_x-1)
-
-        stdscr.refresh()
+            try:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                stdscr.addstr(int(drop['y']), int(drop['x']), drop['symbol'], curses.color_pair(1))#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+            except curses.error as e:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                print("Error:", e)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+            drop['y'] += drop['speed']#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+            if drop['y'] >= max_y:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                drop['y'] = 0#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                drop['x'] = random.randint(0, max_x-1)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        stdscr.refresh()#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
         time.sleep(0.05)
 
         ch = stdscr.getch()
@@ -105,18 +106,18 @@ def rain(stdscr):
 def function_1():
     phone_number = ""
     try:
-        while not phone_number:
-            print("Введите номер телефона с кодом страны:", end='', flush=True)
-            c = ord(getch())
-            while c != 13:  # Enter key
-                if c == 3:  # Ctrl+C
-                    raise KeyboardInterrupt
-                if c == 8:  # Backspace key
-                    if phone_number:
-                        print("\b \b", end='', flush=True)
-                        phone_number = phone_number[:-1]
-                else:
-                    print(chr(c), end='', flush=True)
+        while not phone_number:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+            print("Введите номер телефона с кодом страны:", end='', flush=True)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+            c = ord(getch())#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+            while c != 13:  # Enter key#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                if c == 3:  # Ctrl+C#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                    raise KeyboardInterrupt#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                if c == 8:  # Backspace key#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                    if phone_number:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                        print("\b \b", end='', flush=True)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                        phone_number = phone_number[:-1]#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                else:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+                    print(chr(c), end='', flush=True)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
                     phone_number += chr(c)
                 c = ord(getch())
         print("\n")
@@ -124,19 +125,19 @@ def function_1():
         country = p.region_code_for_country_code(ph_no.country_code)
         no_carrier = carrier.name_for_number(ph_no, "ru")
         no_valid = p.is_valid_number(ph_no)
-        no_possible = p.is_possible_number(ph_no)
-        time_zone = timezone.time_zones_for_number(ph_no)
-        region = geocoder.description_for_number(ph_no, "ru")
-
-        printer.info(f"Ищем информацию на '{phone_number}'...")
-        time.sleep(1)
-        printer.success("Номер телефона:", phone_number)
-        printer.success(f"Валидный:", no_valid)
-        printer.success(f"Правильность набора:", no_possible)
-        printer.success(f"Оператор:", no_carrier)
-        printer.success(f"Страна:", country)
-        printer.success(f"Город:", region)
-        printer.success(f"Часовые пояса:", time_zone)
+        no_possible = p.is_possible_number(ph_no)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        time_zone = timezone.time_zones_for_number(ph_no)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        region = geocoder.description_for_number(ph_no, "ru")#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.info(f"Ищем информацию на '{phone_number}'...")#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        time.sleep(1)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("Номер телефона:", phone_number)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success(f"Валидный:", no_valid)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success(f"Правильность набора:", no_possible)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success(f"Оператор:", no_carrier)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success(f"Страна:", country)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success(f"Город:", region)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success(f"Часовые пояса:", time_zone)#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
         input("Нажмите Enter, чтобы вернуться в главное меню...")
     except KeyboardInterrupt:
         print("\nПрервано пользователем.")
@@ -145,19 +146,19 @@ def function_2():
     try:
         ip_address = input("Введите айпи:")
         if not ip_address:
-            raise KeyboardInterrupt
-        response = requests.get(f"https://ipinfo.io/{ip_address}/json")
-        data = response.json()
-
-        printer.success("IP: ", data["ip"])
-        printer.success("Местоположение: ", data["city"], ",", data["region"], ",", data["country"])
-        printer.success("Провайдер: ", data["org"])
-        printer.success("Часовой пояс: ", data["timezone"])
-        printer.success("Почтовый индекс: ", data["postal"])
-        printer.success("Координаты: ", data["loc"])
-
-        input("Нажмите Enter, чтобы вернуться в главное меню...")
-    except KeyboardInterrupt:
+            raise KeyboardInterrupt#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        response = requests.get(f"https://ipinfo.io/{ip_address}/json")#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        data = response.json()#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("IP: ", data["ip"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("Местоположение: ", data["city"], ",", data["region"], ",", data["country"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("Провайдер: ", data["org"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("Часовой пояс: ", data["timezone"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("Почтовый индекс: ", data["postal"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        printer.success("Координаты: ", data["loc"])#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+        input("Нажмите Enter, чтобы вернуться в главное меню...")#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
+    except KeyboardInterrupt:#CЛИТО НА КАНАЛЕ falcon-bytes.github.io
         print("\nПрервано пользователем.")
     except EOFError:
         # Если пользователь просто нажал Enter, игнорируем и возвращаемся в главное меню
